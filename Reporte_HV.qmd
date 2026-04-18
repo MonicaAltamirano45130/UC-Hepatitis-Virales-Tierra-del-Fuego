@@ -1,0 +1,247 @@
+---
+title: ""
+format: 
+ html:
+  theme: jeti
+  toc: true                # Habilita la tabla de contenidos
+  toc-title: "Índice de Contenidos"  # Título del índice
+  toc-depth: 4             # Nivel de profundidad del índice (hasta h4)
+  toc-location: left       # Ubicación del índice (izquierda)
+  embed-resources: true   # Incluye imágenes en el documento 
+editor: visual
+---
+
+# **BOLETÍN EPIDEMIOLÓGICO**
+
+## **Hepatitis Virales -- Provincia de Tierra del Fuego -- Período 2019 - 2025**
+
+## **1.Introducción**
+
+Las hepatitis virales constituyen un problema de salud pública a nivel mundial, con impacto variable según región, acceso al sistema sanitario, cobertura de vacunación y disponibilidad de diagnóstico oportuno y tratamiento antiviral.
+
+La estrategia global impulsada por la Organización Mundial de la Salud propone como meta para el año 2030 la eliminación de las hepatitis virales como amenaza para la salud pública, estableciendo objetivos concretos de reducción del 90% en nuevas infecciones y 65% en mortalidad asociada.
+
+En Argentina, las hepatitis A, B y C representan las principales etiologías virales, con diferentes patrones de transmisión, evolución clínica y carga de enfermedad. La hepatitis B y C son responsables de la mayor proporción de cirrosis, insuficiencia hepática y carcinoma hepatocelular, generando un impacto sanitario, social y económico significativo.
+
+En la Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur, las características geográficas ---territorio insular, dispersión poblacional y distancia de centros de alta complejidad--- configuran un escenario epidemiológico particular que requiere estrategias locales de vigilancia, diagnóstico y tratamiento, para poder aplicar Politicas publicas acorde a las características de nuestra pobleacion.
+
+## **2.Objetivos**
+
+### **Objetivo general**
+
+El presente boletín tiene como objetivo describir y analizar la situación epidemiológica en el periodo 2019-2025 de las hepatitis virales en la provincia, para aportar información para la toma de decisiones sanitarias.
+
+### **Objetivos específicos**
+
+Determinar incidencia y prevalencia por tipo de hepatitis.
+
+Analizar distribución por edad, sexo y ciudad.
+
+Identificar dificultades y falencias en el circuito de abordaje
+
+Describir proporción de enfermedad avanzada.
+
+Analizar tendencia temporal
+
+Proponer líneas de acción sanitaria
+
+## **3.Metodología**
+
+3.1 Diseño
+
+Estudio descriptivo, observacional y retrospectivo
+
+3.2 Fuentes de información
+
+Sistema Nacional de Vigilancia (SNVS 2.0).
+
+Laboratorios provinciales.
+
+Registros hospitalarios a partir de Historia Clinica digital (Ushuaia, Río Grande, Tolhuin).
+
+Programa Nacional  de Hepatitis Virales
+
+Registro propio del servicio de Hepatología 
+
+Unidad Centinela de Hepatitis Virales
+
+Bancos de sangre
+
+3.3 Definición de caso
+
+Se utilizaron las definiciones vigentes nacionales para hepatitis A, B, C 
+
+3.4 Variables analizadas
+
+Edad.
+
+Sexo.
+
+Ciudad de residencia.
+
+Establecimiento de Carga de la notificación
+
+Tipo de hepatitis: A, B y C
+
+Categorización de la Hepatitis: aguda, crónica, resuelta
+
+Para HBV 
+
+Aguda: hepatitis aguda definida por laboratorio y clínica sin contar documentada la evolución a crónica o resolución
+
+Aguda y resuelta: aguda definida por laboratorio y clinica documentando la resolución de la misma por la presencia de Anti s
+
+Resuelta: paciente asintomático con core + con antis +
+
+Crónica: persistencia de Hbsag por más de 6 meses
+
+Sin datos: no se puede categorizar con los datos documentados
+
+Para HCV
+
+Crónica: persistencia de infección con CV positiva  mayor a 6 meses
+
+Sin datos: no se puede categorizar con los datos documentados
+Presencia de cirrosis: determinada por evidencia clínicas, determinado por  imágenes biopsia  o elastografía 
+
+Evolución a trasplante, hepatocarcinoma o muerte documentada en HC
+
+Indicación y acceso a tratamiento, documentado en HC
+
+Resultado al tratamiento: si logra Respuesta Viral Sostenida en caso de Hepatitis C, o CV indetectable en Hepatitis B
+ 
+Pérdida de seguimiento: definido en pacientes crónicos como la falta de control a los 6 meses de la ultima consulta
+
+3.5 Análisis estadístico
+
+Se calcularon tasas por 100.000 habitantes, proporciones y distribución por grupos etarios
+
+## **4.Situación Epidemiológica por Tipo**
+
+-Hepatitis A
+
+Casos notificados.
+
+Tasa por 100.000 habitantes.
+
+Distribución por edad.
+
+Brotes (si existieron).
+
+Disponibilidad de vacuna y uso
+
+
+-Hepatitis B
+
+Casos agudos vs crónicos vs resueltas
+
+Coinfección VIH.
+
+Grupo etario de hepatitis aguda y agudas resueltas: analizar el impacto de la vacunación
+
+Grupo etario de HBV crónica
+
+Porcentaje de pacientes crónicos en estadio de cirrosis, evolución a HCC trasplante o muerte
+
+Porcentaje de pacientes crónicos que pierden el seguimiento
+
+Analisis de donde proviene la notificación en los casos que no hay datos para completar el dx
+
+Porcentaje de pacientes tratados.
+
+
+-Hepatitis C
+
+Casos diagnosticados con CV+
+
+Coinfeccion HIV
+
+Porcentaje de Pacientes tratados y Tasa de curación (RVS).
+
+Pacientes en estadio de cirrosis
+
+Porcentaje de pacientes crónicos en estadio de cirrosis, evolución a HCC trasplante o muerte
+
+Casos perdidos del sistema de salud
+
+Identificar fuente de notificación en pacientes sin datos para categorizacion
+
+## **5.Distribución geográfica**
+
+Ushuaia
+
+Río Grande
+
+Tolhuin
+
+
+
+Casos por ciudad
+
+Tasa ajustada por población
+
+Grupo etario
+
+## **6.Factores de Riesgo Identificados: NO SE EVALUARA EN ESTA INSTANCIA**
+
+Uso de drogas EV
+
+Transfusiones previas a 1994
+
+Personas privadas de libertad
+
+Coinfección VIH
+
+Pacientes en hemodiálisis
+
+Personal de salud
+
+## **7.Análisis y problemas detectados**
+
+La provincia presenta una carga de enfermedad compatible con su perfil demográfico, aunque se evidencia probable subdiagnóstico, particularmente en hepatitis C.
+
+El bajo volumen poblacional constituye una oportunidad estratégica para implementar programas de microeliminación, dado que la identificación activa y tratamiento sistemático permitirían alcanzar metas de eliminación en un plazo factible.
+
+La organización estructurada de la atención hepatológica, combinando evaluación presencial, seguimiento remoto y articulación interdisciplinaria, se presenta como modelo eficiente en contexto insular.
+
+La detección temprana reduce significativamente:
+
+Internaciones.
+
+Derivaciones fuera de la provincia.
+
+Costos asociados a enfermedad avanzada.
+
+Mortalidad prematura.
+ Problemas detectados
+
+Baja pesquisa 
+
+perdida de seguimiento, Falta de circuito protocolizado entre ciudades: perdida de pacientes derivados de infectologia y de banco de sangre y la clinica sn jorge
+
+Pérdida de pacientes de banco de sangre por falta de notificación, incluso los descartados por laboratorio
+
+## **8.Recomendaciones**
+
+Implementar estrategia provincial de pesquisa sistematizada 
+
+Generar circuito de derivación en banco de sangre
+
+Capacitación  APS para fomentar pesquisa.
+ Optimizar registro epidemiológico provincial.
+
+Involucrar personal del sistema Privado para la notificación y derivación
+
+Registro provincial unificado Público - Privado con sistema ágil de derivación de pacientes detectados
+
+Generar sistema permanente de Revinculación 
+
+Reasegurar vacunación
+
+
+## **9.Conlusiones**
+
+La Provincia de Tierra del Fuego posee condiciones demográficas que permiten proyectar la eliminación de las hepatitis virales como problema de salud pública mediante una estrategia organizada, sostenida y basada en diagnóstico oportuno y tratamiento integral.
+
+La planificación estructurada de la atención hepatológica constituye una herramienta sanitaria estratégica que impacta favorablemente en morbimortalidad, calidad de vida y sostenibilidad del sistema de salud provincial.
+
