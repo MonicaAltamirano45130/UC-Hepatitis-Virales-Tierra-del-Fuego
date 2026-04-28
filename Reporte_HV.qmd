@@ -1,24 +1,28 @@
 ---
 title: ""
-format: html
-toc: true
-toc-title: "Índice"
-toc-depth: 3
-toc-location: left
-execute: 
+
+format:
+  html:
+    toc: true
+    toc-title: "Índice"
+    toc-depth: 3
+    toc-location: left
+    smooth-scroll: true
+    embed-resources: true
+    css: "Plantillas e imagenes/estilo.css"
+
+execute:
   echo: false
   warning: false
   message: false
-smooth-scroll: true
-embed-resources: true
-css: Plantillas e imagenes/estilo.css
-
+  results: "hide"
 ---
 
 
-```{r, echo=FALSE}
+```{r, echo= FALSE}
 source("Scripts/librerías.R")
 source("Scripts/importación base.R")
+source("Scripts/análisis hvb.R")
 
 ```
 
@@ -216,11 +220,9 @@ print(cronica_tto)
 ```
 
 
-Identificar fuente de notificación en pacientes sin datos para categorizacion (evento bco de sangre)
+Identificar fuente de notificación en pacientes sin datos para categorizacion (evento bco de sangre). Los casos sin datos para categorización fueron notificados en el evento Banco de Sangre principalmente (N=10), y luego como Hepatitis Virales(N=4).
 
 ```{r}
-count(sin_datos)
-
 print(sin_datos)
 ```
 

@@ -18,7 +18,7 @@ data <- read_excel("~/Unidad Centinela Hepatitis VIrales/UC-Hepatitis-Virales-Ti
 Base_HVB <- read_excel("~/Unidad Centinela Hepatitis VIrales/UC-Hepatitis-Virales-Tierra-del-Fuego/Data/Base HVB.xlsx")
 
 data <- data %>% # Selecciono columnas 
-    select( `Nro Doc`,`Grupo etario diagnóstico`,`Grupo de evento` )
+    select( `Nro Doc`,`Grupo etario diagnóstico`,`Grupo de evento`, `Clasificación manual del caso` )
 
 data_B_completa <- left_join(data, Base_HVB, by = "Nro Doc") # Uno las bases
 
@@ -34,7 +34,7 @@ resumen_eventos <- data_B_completa %>% # Resumo clasificaciones
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total
 
-print(resumen_eventos)
+resumen_eventos
 
 confirmados_b <- data_B_completa %>%
   filter (Clasificación== "Aguda" |Clasificación== "Crónica"|Clasificación==  "Resuelta" |Clasificación==  "aguda y resuelta"|Clasificación==  "Sin datos" )
@@ -50,7 +50,7 @@ co_infección_b <- confirmados_b %>% # Resumo co-infección
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total
 
-print (co_infección_b) 
+co_infección_b 
 
 aguda_resuelta <- confirmados_b %>% # Resumo agudas por gedad
   filter (`Clasificación` == "Aguda" |Clasificación == "aguda y resuelta" )
@@ -66,7 +66,7 @@ aguda_resuelta_gedad <- aguda_resuelta %>%
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total
 
-print(aguda_resuelta_gedad) 
+aguda_resuelta_gedad 
 
 cronica <- confirmados_b %>% # Filtro HVB crónica
   filter (`Clasificación` == "Crónica")
@@ -82,7 +82,7 @@ cronica_gedad <- cronica %>% # Resumo crónicas por gedad
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total
 
-print(cronica_gedad)
+cronica_gedad
 
 cronica_cirrosis <- cronica %>% # Cirrosis en crónicas
   group_by(`Cirrosis`) %>%  
@@ -93,7 +93,7 @@ cronica_cirrosis <- cronica %>% # Cirrosis en crónicas
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total 
 
-print(cronica_cirrosis)
+cronica_cirrosis
 
 cronica_hcc <- cronica %>% # HCC en crónicas
   group_by(`Hepatocarcinoma`) %>%  
@@ -105,7 +105,7 @@ cronica_hcc <- cronica %>% # HCC en crónicas
   adorn_totals(where = "row")     # después agrega Total 
 
 
-print(cronica_hcc)
+cronica_hcc
 
 cronica_tx <- cronica %>% # Transplante en crónicas
   group_by(`Transplante`)%>%  
@@ -116,7 +116,7 @@ cronica_tx <- cronica %>% # Transplante en crónicas
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total
 
-print(cronica_tx)
+cronica_tx
 
 cronica_falle <- cronica %>% # Fallecidos en crónicas
   group_by(`Fallecido`) %>%  
@@ -127,7 +127,7 @@ cronica_falle <- cronica %>% # Fallecidos en crónicas
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total 
 
-print(cronica_falle)
+cronica_falle
 
 cronica_perdidos <- cronica %>% # Pérdida de seguimiento en crónicas
   group_by(`Pérdida de seguimiento`) %>%  
@@ -138,7 +138,7 @@ cronica_perdidos <- cronica %>% # Pérdida de seguimiento en crónicas
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total 
 
-print(cronica_perdidos)
+cronica_perdidos
 
 cronica_tto <- cronica %>% # Tratamientos en crónicas
   group_by(`Tratamiento...26`) %>%  
@@ -149,7 +149,7 @@ cronica_tto <- cronica %>% # Tratamientos en crónicas
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total
 
-print(cronica_tto)
+cronica_tto
 
 perdidos <- confirmados_b %>% # Pérdida de seguimiento en crónicas
   group_by(`Pérdida de seguimiento`) %>%  
@@ -160,7 +160,7 @@ perdidos <- confirmados_b %>% # Pérdida de seguimiento en crónicas
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total 
 
-print(perdidos)
+perdidos
 
 sin_datos <- confirmados_b %>% # Filtro Sin datos
   filter (`Clasificación` == "Sin datos")
@@ -176,7 +176,7 @@ sin_datos <- sin_datos %>% # Notificadores de casos sin datos
   arrange(desc(Porcentaje)) %>%   # primero ordena
   adorn_totals(where = "row")     # después agrega Total 
 
-print(sin_datos)
+sin_datos
 #================================================================================================
 #===============================================================================================
 
