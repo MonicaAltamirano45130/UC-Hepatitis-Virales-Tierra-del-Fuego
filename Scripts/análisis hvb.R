@@ -1,158 +1,184 @@
+# ACTIVACIÓN DE LIBRERÍAS A UTILIZAR 
 
-# Análisis HV  SNVS ======================================================
+library(dplyr) #transformación de datos
+library(lubridate) #trabajo con fechas
+library(dlookr) #exploración de datos
+library(readr) #lectura de archivos
+library(readxl) #lectura de archivos. xlsx
+library(writexl) #exportar archivos .xlsx
+library(gt) # libreria para tablas 
+library(gtable) #libreria para tablas 
+library (janitor)#librería para addorn totals
 
-# Análisis HVB ======================================================
-data_B <- data %>% filter(Evento == "Hepatitis B") # Filtramos el evento Hepatitis B
+# IMPORTACIÓN BASES NOMINALES UC-HV
 
-data_columnas_interes <- data_B %>% # Selecciono columnas de interés
-  select(Evento,`Clasificación manual del caso`,`Sexo Legal`,`Grupo etario diagnóstico`, `Nro Doc`,`Fecha Apertura`, `Edad Diagnostico`, `Sexo Legal`)
+data <- read_excel("~/Unidad Centinela Hepatitis VIrales/UC-Hepatitis-Virales-Tierra-del-Fuego/Data/listado_sisa.xlsx")%>%
+  filter (Evento == "Hepatitis B")
 
-resumen_eventos <- data_B %>% # Resumo y agrupo las clasificaciones manuales
-  group_by(`Clasificación manual del caso`) %>%  #agrupa las filas por cada valor distinto en la variable  Clasificación manual del caso
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (Clasificación manual) y guarda el conteo en una columna llamada casos
-  ungroup() # desagrupar los datos para evitar afectaciones posteriores
+Base_HVB <- read_excel("~/Unidad Centinela Hepatitis VIrales/UC-Hepatitis-Virales-Tierra-del-Fuego/Data/Base HVB.xlsx")
 
-# Arrange: ordenar de mayor a menor según cantidad de casos
-resumen_eventos_ordenado <- resumen_eventos %>% 
-  arrange(desc(Casos))%>% 
-  adorn_totals(where = "row")  # agregamos totales 
+data <- data %>% # Selecciono columnas 
+    select( `Nro Doc`,`Grupo etario diagnóstico`,`Grupo de evento` )
 
-# Análisis HV Hepatología ======================================================
+data_B_completa <- left_join(data, Base_HVB, by = "Nro Doc") # Uno las bases
 
-data_columnas_interes_B <- Base_HVB %>% # Selecciono columnas de interés
-  select(`Nro Doc`,`Edad Diagnostico`,`Sexo Legal`,Clasificación,Transplante,Hepatocarcinoma,Cirrosis,`Pérdida de seguimiento`,`Co-infección`)
+data_B_completa <- data_B_completa %>% # Quito filas NA
+  filter(!is.na(`Clasificación`))
 
-# Unión de bases de SNVS y hepatología filtradas según DNI ======================================================
-data_B_completa <- left_join(data_columnas_interes, data_columnas_interes_B, by = "Nro Doc") 
+resumen_eventos <- data_B_completa %>% # Resumo clasificaciones 
+  group_by(`Clasificación`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total
 
-colnames(data_B_completa) #Observo los nombres de las columnas de la base completa
+print(resumen_eventos)
 
-unique (data_B_completa$Clasificación)
+confirmados_b <- data_B_completa %>%
+  filter (Clasificación== "Aguda" |Clasificación== "Crónica"|Clasificación==  "Resuelta" |Clasificación==  "aguda y resuelta"|Clasificación==  "Sin datos" )
 
-data_B_completa <- data_B_completa %>%
-  filter (Clasificación== "Aguda" |Clasificación== "Crónica"|Clasificación==  "Resuelta" |Clasificación==  "aguda y resuelta")
+count(confirmados_b)
 
-# CALCULO DE SEMANA EPIDEMIOLÓGICA PARA EL ANÁLISIS
+co_infección_b <- confirmados_b %>% # Resumo co-infección
+  group_by(`Co-infección`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total
 
-# La función epiweek() de la librería lubridate, nos permite calcular la
-# SE a partir de una fecha determinada.
+print (co_infección_b) 
 
-data_B_completa <- data_B_completa %>%
-  mutate(SEPI = epiweek(`Fecha Apertura`))
+aguda_resuelta <- confirmados_b %>% # Resumo agudas por gedad
+  filter (`Clasificación` == "Aguda" |Clasificación == "aguda y resuelta" )
 
-# ===== PARÁMETROS TEMPORALES PARA EL ANÁLISIS ======
+count(aguda_resuelta)
 
-#Defino parámetros temporales de análisis (establecidos en el plan)
+aguda_resuelta_gedad <- aguda_resuelta %>% 
+  group_by(`Grupo etario diagnóstico`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total
 
-ANIO_MINIMO <- 2019
+print(aguda_resuelta_gedad) 
 
-SEMANA_MINIMA <- 1
+cronica <- confirmados_b %>% # Filtro HVB crónica
+  filter (`Clasificación` == "Crónica")
 
-ANIO_MAXIMO <- 2025
+count(cronica)
 
-SEMANA_MAXIMA <- 52
+cronica_gedad <- cronica %>% # Resumo crónicas por gedad
+  group_by(`Grupo etario diagnóstico`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total
 
-# 📚AGRUPAR Y CONTAR DATOS =======================================
+print(cronica_gedad)
 
-resumen_eventos_completos <- data_B_completa %>% 
-  group_by(`Clasificación`) %>%  #agrupa las filas por cada valor distinto en la variable  DEPARTAMENTO_RESIDENCIA
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (departamento) y guarda el conteo en una columna llamada casos
-  ungroup() # desagrupar los datos para evitar afectaciones posteriores
+cronica_cirrosis <- cronica %>% # Cirrosis en crónicas
+  group_by(`Cirrosis`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total 
 
-# Arrange: ordenar de mayor a menor según cantidad de casos
-resumen_eventos_completos <- resumen_eventos_completos %>% 
-  arrange(desc(Casos))%>% 
-  adorn_totals(where = "row")  # agregamos totales 
- 
-          
-resumen_eventos_completos   
+print(cronica_cirrosis)
 
-# 📚AGRUPAR Y CONTAR DATOS =======================================
+cronica_hcc <- cronica %>% # HCC en crónicas
+  group_by(`Hepatocarcinoma`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total 
 
-resumen_gedad <- data_B_completa %>% 
-  group_by(`Grupo etario diagnóstico`) %>%  #agrupa las filas por cada valor distinto en la variable  DEPARTAMENTO_RESIDENCIA
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (departamento) y guarda el conteo en una columna llamada casos
-  ungroup() %>% # agregamos totales # desagrupar los datos para evitar afectaciones posteriores
-  adorn_totals(where = "row")  
 
-# 📚AGRUPAR Y CONTAR DATOS =======================================
+print(cronica_hcc)
 
-resumen_sexo <- data_B_completa %>% 
-  group_by(`Sexo Legal.y`) %>%  #agrupa las filas por cada valor distinto en la variable  DEPARTAMENTO_RESIDENCIA
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (departamento) y guarda el conteo en una columna llamada casos
-  ungroup() # desagrupar los datos para evitar afectaciones posteriores
+cronica_tx <- cronica %>% # Transplante en crónicas
+  group_by(`Transplante`)%>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total
 
-# Arrange: ordenar de mayor a menor según cantidad de casos
-resumen_sexo <- resumen_sexo %>% 
-  arrange(desc(Casos))%>% 
-  adorn_totals(where = "row")  # agregamos totales 
+print(cronica_tx)
 
-# 📚AGRUPAR Y CONTAR DATOS =======================================
-resumen_coinfeccion <- data_B_completa %>% 
-  group_by(`Co-infección`) %>%  #agrupa las filas por cada valor distinto en la variable  DEPARTAMENTO_RESIDENCIA
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (departamento) y guarda el conteo en una columna llamada casos
-  ungroup() # desagrupar los datos para evitar afectaciones posteriores
+cronica_falle <- cronica %>% # Fallecidos en crónicas
+  group_by(`Fallecido`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total 
 
-# Arrange: ordenar de mayor a menor según cantidad de casos
-resumen_coinfeccion <- resumen_coinfeccion %>% 
-  arrange(desc(Casos))%>% 
-  adorn_totals(where = "row")  # agregamos totales 
+print(cronica_falle)
 
-# GROUP_BY + SUMMARISE ================================================
-# El resultado es un nuevo data frame con una fila por 
-# grupo (departamento) y la cantidad de casos en cada uno.
+cronica_perdidos <- cronica %>% # Pérdida de seguimiento en crónicas
+  group_by(`Pérdida de seguimiento`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total 
 
-resumen_transplante <- data_B_completa %>% 
-  group_by(`Transplante`) %>%  #agrupa las filas por cada valor distinto en la variable  DEPARTAMENTO_RESIDENCIA
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (departamento) y guarda el conteo en una columna llamada casos
-  ungroup() # desagrupar los datos para evitar afectaciones posteriores
+print(cronica_perdidos)
 
-# Arrange: ordenar de mayor a menor según cantidad de casos
-resumen_transplante <- resumen_transplante %>% 
-  arrange(desc(Casos))%>% 
-  adorn_totals(where = "row")  # agregamos totales 
+cronica_tto <- cronica %>% # Tratamientos en crónicas
+  group_by(`Tratamiento...26`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100, 1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total
 
-1# GROUP_BY + SUMMARISE ================================================
-# El resultado es un nuevo data frame con una fila por 
-# grupo (departamento) y la cantidad de casos en cada uno.
+print(cronica_tto)
 
-resumen_hepatocarcinoma <- data_B_completa %>% 
-  group_by(`Hepatocarcinoma`) %>%  #agrupa las filas por cada valor distinto en la variable  DEPARTAMENTO_RESIDENCIA
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (departamento) y guarda el conteo en una columna llamada casos
-  ungroup() # desagrupar los datos para evitar afectaciones posteriores
+perdidos <- confirmados_b %>% # Pérdida de seguimiento en crónicas
+  group_by(`Pérdida de seguimiento`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total 
 
-# Arrange: ordenar de mayor a menor según cantidad de casos
-resumen_hepatocarcinoma <- resumen_hepatocarcinoma %>% 
-  arrange(desc(Casos))%>% 
-  adorn_totals(where = "row")  # agregamos totales 
+print(perdidos)
 
-# GROUP_BY + SUMMARISE ================================================
-# El resultado es un nuevo data frame con una fila por 
-# grupo (departamento) y la cantidad de casos en cada uno.
+sin_datos <- confirmados_b %>% # Filtro Sin datos
+  filter (`Clasificación` == "Sin datos")
 
-resumen_cirrosis <- data_B_completa %>% 
-  group_by(`Cirrosis`) %>%  #agrupa las filas por cada valor distinto en la variable  DEPARTAMENTO_RESIDENCIA
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (departamento) y guarda el conteo en una columna llamada casos
-  ungroup() # desagrupar los datos para evitar afectaciones posteriores
+count(sin_datos)
 
-# Arrange: ordenar de mayor a menor según cantidad de casos
-resumen_cirrosis <- resumen_cirrosis %>% 
-  arrange(desc(Casos))%>% 
-  adorn_totals(where = "row")  # agregamos totales 
+sin_datos <- sin_datos %>% # Notificadores de casos sin datos
+  group_by(`Grupo de evento.x`) %>%  
+  summarise(Casos = n(), .groups = "drop") %>% 
+  mutate(
+    Porcentaje = round((Casos / sum(Casos)) * 100,1)
+  ) %>%
+  arrange(desc(Porcentaje)) %>%   # primero ordena
+  adorn_totals(where = "row")     # después agrega Total 
 
-# GROUP_BY + SUMMARISE ================================================
-# El resultado es un nuevo data frame con una fila por 
-# grupo (departamento) y la cantidad de casos en cada uno.
-
-resumen_perdida <- data_B_completa %>% 
-  group_by(`Pérdida de seguimiento`) %>%  #agrupa las filas por cada valor distinto en la variable  DEPARTAMENTO_RESIDENCIA
-  summarise(Casos = n()) %>% #cuenta cuántas filas hay en cada grupo (departamento) y guarda el conteo en una columna llamada casos
-  ungroup() # desagrupar los datos para evitar afectaciones posteriores
-
-# Arrange: ordenar de mayor a menor según cantidad de casos
-resumen_perdida <- resumen_perdida %>% 
-  arrange(desc(Casos))%>% 
-  adorn_totals(where = "row")  # agregamos totales 
+print(sin_datos)
+#================================================================================================
+#===============================================================================================
 
 #️ 📁️️️️  4- EXPORTAR BASE DE DATOS ================================================
 
