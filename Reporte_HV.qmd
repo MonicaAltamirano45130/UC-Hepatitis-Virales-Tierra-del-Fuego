@@ -19,8 +19,6 @@ css: Plantillas e imagenes/estilo.css
 ```{r, echo=FALSE}
 source("Scripts/librerías.R")
 source("Scripts/importación base.R")
-source("Scripts/análisis hvb.R")
-source("Scripts/casos_2026.R")
 
 ```
 
