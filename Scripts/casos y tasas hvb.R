@@ -2,7 +2,7 @@
 
 #Filtro evento de interés y año en estudio
 
-base <- data_B_completa %>% filter (Clasificación != "descartado") 
+base <- data_B_completa %>% filter (Clasificación != "descartado"|Clasificación != "Resuelta"|Clasificación != "Sin datos") 
 
 # ----------------------------------------------------
 # 🧮 FRECUENCIA ABSOLUTA Y RELATIVA
