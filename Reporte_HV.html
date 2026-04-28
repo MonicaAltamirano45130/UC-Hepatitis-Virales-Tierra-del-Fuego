@@ -3014,7 +3014,9 @@ vertical-align: -.125em;
   <ul class="collapse">
   <li><a href="#hepatitis-a" id="toc-hepatitis-a" class="nav-link" data-scroll-target="#hepatitis-a"><strong>Hepatitis A</strong></a></li>
   <li><a href="#hepatitis-b" id="toc-hepatitis-b" class="nav-link" data-scroll-target="#hepatitis-b"><strong>Hepatitis B</strong></a></li>
+  <li><a href="#casos-2025" id="toc-casos-2025" class="nav-link" data-scroll-target="#casos-2025">Casos 2025</a></li>
   <li><a href="#hepatitis-c" id="toc-hepatitis-c" class="nav-link" data-scroll-target="#hepatitis-c"><strong>Hepatitis C</strong></a></li>
+  <li><a href="#casos-c-2025" id="toc-casos-c-2025" class="nav-link" data-scroll-target="#casos-c-2025">Casos C 2025</a></li>
   </ul></li>
   <li><a href="#distribución-geográfica" id="toc-distribución-geográfica" class="nav-link" data-scroll-target="#distribución-geográfica"><strong>5.Distribución geográfica</strong></a></li>
   <li><a href="#factores-de-riesgo-identificados-no-se-evaluara-en-esta-instancia" id="toc-factores-de-riesgo-identificados-no-se-evaluara-en-esta-instancia" class="nav-link" data-scroll-target="#factores-de-riesgo-identificados-no-se-evaluara-en-esta-instancia"><strong>6.Factores de Riesgo Identificados: NO SE EVALUARA EN ESTA INSTANCIA</strong></a></li>
@@ -3127,24 +3129,33 @@ vertical-align: -.125em;
 </section>
 <section id="hepatitis-b" class="level3">
 <h3 class="anchored" data-anchor-id="hepatitis-b"><strong>Hepatitis B</strong></h3>
-<p>Casos agudos, crónicos, resueltos, agudos resueltos, totales confirmados</p>
+</section>
+<section id="casos-2025" class="level3">
+<h3 class="anchored" data-anchor-id="casos-2025">Casos 2025</h3>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code># A tibble: 9 × 24
+  Evento      `Grupo de evento` Clasificación manual del …¹ `Apellido Ciudadano`
+  &lt;chr&gt;       &lt;chr&gt;             &lt;chr&gt;                       &lt;chr&gt;               
+1 Hepatitis B Hepatitis virales 12. Virus Hepatitis B       SCHOLLES            
+2 Hepatitis B Banco de Sangre   09. Caso CONFIRMADO de Inf… VILLALOBOS          
+3 Hepatitis B Banco de Sangre   09. Caso CONFIRMADO de Inf… ORTIZ               
+4 Hepatitis B Hepatitis virales 05. Caso CONFIRMADO de Inf… VERA OYARZO         
+5 Hepatitis B Hepatitis virales 05. Caso CONFIRMADO de Inf… MUÑOZ BUSTAMANTE    
+6 Hepatitis B Banco de Sangre   03. Caso PROBABLE de Infec… MORAN               
+7 Hepatitis B Hepatitis virales 07. Hepatitis B Resuelta -… AYALA               
+8 Hepatitis B Hepatitis virales 03. Caso PROBABLE de Infec… ESTIGARRIBIA ACOSTA 
+9 Hepatitis B Hepatitis virales 04. Caso CONFIRMADO de Inf… PRETO               
+# ℹ abbreviated name: ¹​`Clasificación manual del caso`
+# ℹ 20 more variables: `Nombre Ciudadano` &lt;chr&gt;, `Calle Domicilio` &lt;chr&gt;,
+#   `Numero Domicilio` &lt;chr&gt;, `Localidad Residencia` &lt;chr&gt;,
+#   `Tipo Cobertura Social` &lt;chr&gt;, `Edad Diagnostico` &lt;dbl&gt;,
+#   `Sexo Legal` &lt;chr&gt;, `Tipo de doc` &lt;chr&gt;, `Nro Doc` &lt;dbl&gt;,
+#   `Establecimiento de Carga` &lt;chr&gt;, `Fecha Apertura` &lt;dttm&gt;,
+#   `Fecha recolección en papel` &lt;dbl&gt;, `Fecha consulta` &lt;chr&gt;, …</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 30</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 41</code></pre>
-</div>
-</div>
+<p>Casos agudos, crónicos, resueltos, agudos resueltos, totales confirmados ## Contar</p>
 <p>Coinfección VIH.</p>
 <p>Grupo etario de hepatitis aguda y agudas resueltas: analizar el impacto de la vacunación</p>
 <p>Grupo etario de HBV crónica</p>
@@ -3154,81 +3165,36 @@ vertical-align: -.125em;
 <p>Porcentaje de pacientes tratados.</p>
 <section id="resultados-preliminares" class="level4">
 <h4 class="anchored" data-anchor-id="resultados-preliminares">Resultados preliminares</h4>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>                    Clasificación manual del caso Casos
- 05. Caso CONFIRMADO de Infección Crónica por VHB    22
-           02. Caso sospechoso en banco de sangre     6
-             01. Caso probable en banco de sangre     5
-           03. Caso PROBABLE de Infección por VHB     5
-      07. Hepatitis B Resuelta - Infección Pasada     5
-   06. Caso CONFIRMADO de Infección Aguda por VHB     4
-                            12. Virus Hepatitis B     3
-  09. Caso CONFIRMADO de Infección OCULTA por VHB     2
-                  11. En estudio para hepatitis B     2
-                          Paciente en seguimiento     2
-         04. Caso CONFIRMADO de Infección por VHB     1
-                                            Total    57</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Clasificación Casos
-          Crónica    30
-         Resuelta     6
- aguda y resuelta     3
-            Aguda     2
-            Total    41</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Grupo etario diagnóstico Casos
-          De 20 a 24 a¿os     1
-          De 25 a 34 a¿os     2
-          De 35 a 44 a¿os    16
-          De 45 a 65 a¿os    15
-       Mayores de 65 a¿os     7
-                    Total    41</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Sexo Legal.y Casos
-            M    25
-            F    16
-        Total    41</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Hepatocarcinoma Casos
-              NO    26
-        sin dato     9
-            &lt;NA&gt;     6
-           Total    41</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Transplante Casos
-          NO    26
-    sin dato     9
-        &lt;NA&gt;     6
-       Total    41</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Cirrosis Casos
-       NO    22
- sin dato    11
-     &lt;NA&gt;     6
-       SI     2
-    Total    41</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Pérdida de seguimiento Casos
-                     SI    18
-                     NO    13
-                   &lt;NA&gt;     6
-         no corresponde     3
-                     si     1
-                  Total    41</code></pre>
-</div>
-</div>
 </section>
 </section>
 <section id="hepatitis-c" class="level3">
 <h3 class="anchored" data-anchor-id="hepatitis-c"><strong>Hepatitis C</strong></h3>
+</section>
+<section id="casos-c-2025" class="level3">
+<h3 class="anchored" data-anchor-id="casos-c-2025">Casos C 2025</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 24
+  Evento      `Grupo de evento` Clasificación manual del …¹ `Apellido Ciudadano`
+  &lt;chr&gt;       &lt;chr&gt;             &lt;chr&gt;                       &lt;chr&gt;               
+1 Hepatitis C Banco de Sangre   01. Caso probable en banco… MANCILLA MENDEZ     
+2 Hepatitis C Hepatitis virales 04. Caso CONFIRMADO de Inf… GUENTELICAN         
+3 Hepatitis C Hepatitis virales Virus Hepatitis C, genotip… MORUA               
+4 Hepatitis C Hepatitis virales Virus Hepatitis C, genotip… BUSTOS              
+5 Hepatitis C Hepatitis virales Virus Hepatitis C, genotip… ZALAZAR             
+6 Hepatitis C Hepatitis virales 03. Caso PROBABLE de Infec… VILLANUEVA          
+7 Hepatitis C Hepatitis virales Virus Hepatitis C, genotip… AGUILA AGUILA       
+8 Hepatitis C Hepatitis virales 04. Caso CONFIRMADO de Inf… VILLA               
+9 Hepatitis C Hepatitis virales 03. Caso PROBABLE de Infec… VALENZUELA          
+# ℹ abbreviated name: ¹​`Clasificación manual del caso`
+# ℹ 20 more variables: `Nombre Ciudadano` &lt;chr&gt;, `Calle Domicilio` &lt;chr&gt;,
+#   `Numero Domicilio` &lt;chr&gt;, `Localidad Residencia` &lt;chr&gt;,
+#   `Tipo Cobertura Social` &lt;chr&gt;, `Edad Diagnostico` &lt;dbl&gt;,
+#   `Sexo Legal` &lt;chr&gt;, `Tipo de doc` &lt;chr&gt;, `Nro Doc` &lt;dbl&gt;,
+#   `Establecimiento de Carga` &lt;chr&gt;, `Fecha Apertura` &lt;dttm&gt;,
+#   `Fecha recolección en papel` &lt;dbl&gt;, `Fecha consulta` &lt;chr&gt;, …</code></pre>
+</div>
+</div>
 <p>Casos diagnosticados con CV+</p>
 <p>Coinfeccion HIV</p>
 <p>Porcentaje de Pacientes tratados y Tasa de curación (RVS).</p>
@@ -3238,72 +3204,6 @@ vertical-align: -.125em;
 <p>Identificar fuente de notificación en pacientes sin datos para categorizacion</p>
 <section id="resultados-preliminares-1" class="level4">
 <h4 class="anchored" data-anchor-id="resultados-preliminares-1">Resultados preliminares</h4>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>            Clasificación manual del caso Casos
-   03. Caso PROBABLE de Infección por VHC    25
-           Virus Hepatitis C, genotipo 1a    18
- 04. Caso CONFIRMADO de Infección por VHC    17
-           Virus Hepatitis C, genotipo 1b     9
-          07. En estudio para Hepatitis C     4
-            Virus Hepatitis C, genotipo 1     4
-     01. Caso probable en banco de sangre     3
-  05. Infección resuelta o falso anti VHC     3
-            Virus Hepatitis C, genotipo 3     3
-   02. Caso sospechoso en banco de sangre     2
- 06. Caso DESCARTADO de Infección por VHC     2
-            Virus Hepatitis C, genotipo 2     2
-            Virus Hepatitis C, genotipo 4     1
-                                    Total    93</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Confirmado Casos
-         SI    47
-      Total    47</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Grupo etario diagnóstico Casos
-          De 25 a 34 a¿os     1
-          De 35 a 44 a¿os     7
-          De 45 a 65 a¿os    35
-       Mayores de 65 a¿os     4
-                    Total    47</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Sexo Legal Casos
-          M    28
-          F    19
-      Total    47</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Hepatocarcinoma Casos
-              NO    39
-       SIN DATOS     5
-              SI     3
-           Total    47</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Transplante Casos
-          NO    43
-   SIN DATOS     4
-       Total    47</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Cirrosis Casos
-        NO    28
-        SI    13
- SIN DATOS     6
-     Total    47</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Perdida de seguimiento Casos
-                     NO    31
-                     SI    14
-              SIN DATOS     1
-                   &lt;NA&gt;     1
-                  Total    47</code></pre>
-</div>
-</div>
 </section>
 </section>
 </section>
