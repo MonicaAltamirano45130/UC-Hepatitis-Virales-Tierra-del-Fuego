@@ -20,10 +20,7 @@ css: Plantillas e imagenes/estilo.css
 source("Scripts/librerías.R")
 source("Scripts/importación base.R")
 source("Scripts/análisis hvb.R")
-source("Scripts/casos y tasas hvb.R")
-source("Scripts/pérdida de seguimiento hvb.R")
-source("Scripts/análisis hvc.R")
-source("Scripts/pérdida de seguimiento hvc.R")
+source("Scripts/casos_2026.R")
 
 ```
 
@@ -148,44 +145,95 @@ Disponibilidad de vacuna y uso
 
 ### **Hepatitis B**
 
-Casos agudos, crónicos, resueltos, agudos resueltos, totales confirmados 
+Frecuencia absoluta y relativa de casos agudos, crónicos, resueltos,  agudos y resueltos, y sin datos.
 
 ```{r}
-casos_agudos #agudos
-casos_crónicos #crónicos
-casos_resueltos #resueltos
-casos_agudos_resueltos #agudos y resueltos
-casos_totales #totales confirmados
-
+print(resumen_eventos)
 ```
-Coinfección VIH.
 
-Grupo etario de hepatitis aguda y agudas resueltas: analizar el impacto de la vacunación
+El total de casos confirmados de HVB: 
 
-Grupo etario de HBV crónica
+```{r}
+count(confirmados_b)
+```
 
-Porcentaje de pacientes crónicos en estadio de cirrosis, evolución a HCC trasplante o muerte
+Frecuencia absoluta y relativa de co-infección VIH.
+
+```{r}
+print (co_infección_b) 
+```
+
+Distribución de grupo etario de hepatitis aguda y agudas resueltas: analizar el impacto de la vacunación.
+
+```{r}
+count(aguda_resuelta)
+```
+
+```{r}
+print(aguda_resuelta_gedad) 
+```
+
+Distribución de grupo etario de HBV crónica
+
+```{r}
+count(cronica)
+```
+
+```{r}
+print(cronica_gedad)
+```
+
+Porcentaje de pacientes crónicos en estadio de cirrosis, evolución  trasplante o muerte
+
+```{r}
+print(cronica_cirrosis)
+```
+
+Porcentaje de pacientes crónicos que evolucionan a HCC
+
+```{r}
+print(cronica_hcc)
+```
+Porcentaje de pacientes crónicos que evolucionan a transplante
+
+```{r}
+print(cronica_tx)
+```
+Porcentaje de pacientes crónicos que evolucionan a muerte
+
+```{r}
+print(cronica_falle)
+```
 
 Porcentaje de pacientes crónicos que pierden el seguimiento
 
-Analisis de donde proviene la notificación en los casos que no hay datos para completar el dx
+```{r}
+print(cronica_perdidos)
+```
 
-Porcentaje de pacientes tratados.
-
-#### Resultados preliminares
+Porcentaje de pacientes tratados en cronicos
 
 ```{r}
-
-resumen_eventos_ordenado
-resumen_eventos_completos
-resumen_gedad
-resumen_sexo
-resumen_hepatocarcinoma
-resumen_transplante
-resumen_cirrosis
-resumen_perdida
-
+print(cronica_tto)
 ```
+
+
+Identificar fuente de notificación en pacientes sin datos para categorizacion (evento bco de sangre)
+
+```{r}
+count(sin_datos)
+
+print(sin_datos)
+```
+
+
+Casos perdidos del sistema de salud (sin datos , agudas, perdida de seguimiento)
+
+```{r}
+print(perdidos)
+```
+
+
 ### **Hepatitis C**
 
 Casos diagnosticados con CV+
@@ -201,20 +249,6 @@ Porcentaje de pacientes crónicos en estadio de cirrosis, evolución a HCC trasp
 Casos perdidos del sistema de salud
 
 Identificar fuente de notificación en pacientes sin datos para categorizacion
-
-#### Resultados preliminares
-
-```{r}
-resumen_eventos_ordenado_c
-resumen_eventos_completos_c
-resumen_gedad_c
-resumen_sexo_c
-resumen_hepatocarcinoma_c
-resumen_transplante_c
-resumen_rvs_c
-resumen_perdida_c
-
-```
 
 ## **5.Distribución geográfica**
 
