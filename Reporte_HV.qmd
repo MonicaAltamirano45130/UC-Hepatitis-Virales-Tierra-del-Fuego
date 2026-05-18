@@ -1,35 +1,40 @@
 ---
 title: ""
-
-format:
-  html:
-    toc: true
-    toc-title: "Índice"
-    toc-depth: 3
-    toc-location: left
-    smooth-scroll: true
-    embed-resources: true
-    css: "Plantillas e imagenes/estilo.css"
-
-execute:
+format: html
+toc: true
+toc-title: "Índice"
+toc-depth: 3
+toc-location: left
+execute: 
   echo: false
   warning: false
   message: false
-  results: "hide"
+smooth-scroll: true
+embed-resources: true
+css: Plantillas e imagenes/estilo.css
+
 ---
 
+![](Plantillas e imagenes/logo.png){width=40%}
 
-```{r, echo= FALSE}
-source("Scripts/librerías.R")
-source("Scripts/importación base.R")
-source("Scripts/análisis hvb.R")
-
+```{r}
+source("Scripts/1.librerías.R")
+source("Scripts/2.importación base.R")
+source("Scripts/3.notificaciones por tipo de hv.R")
+source("Scripts/curva_interactiva_casos.R")
+source("Scripts/4.análisis hvb.R")
+source("Scripts/5.análisis hvc.R")
+source("Scripts/6.distribución geográfica.R")
+source("Scripts/7.formato de tablas hvb.R")
+source("Scripts/8.formato de tablas hvc.R")
+source("Scripts/9.pérdida de seguimiento hvb.R")
+source("Scripts/10.pérdida de seguimiento hvc.R")
 ```
 
 
 # Boletín Epidemiológico
 # Unidad Centinela de Hepatitis Virales
-# Tierra del Fuego A e IAS (2019 - 2025)
+# Tierra del Fuego A e IAS (2018 - 2025)
 
 ## **1.Introducción**
 
@@ -45,7 +50,7 @@ En la Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur, las 
 
 ### **Objetivo general**
 
-El presente boletín tiene como objetivo describir y analizar la situación epidemiológica en el periodo 2019-2025 de las hepatitis virales en la provincia, para aportar información para la toma de decisiones sanitarias.
+El presente boletín tiene como objetivo describir y analizar la situación epidemiológica en el periodo 2017-2025 de las hepatitis virales en la provincia, para aportar información para la toma de decisiones sanitarias.
 
 ### **Objetivos específicos**
 
@@ -131,7 +136,26 @@ Pérdida de seguimiento: definido en pacientes crónicos como la falta de contro
 
 Se calcularon tasas por 100.000 habitantes, proporciones y distribución por grupos etarios
 
-## **4.Situación Epidemiológica por Tipo**
+## **4.Situación Epidemiológica por Tipo de HV**
+
+En el período comprendido entre los años 2018 a 2025 en la provincia de Tierra del Fuego A e IAS, se notificaron `r notificados_totales` casos de Hepatitis Virales, de los cuales se confirmaron `r confirmados_b_totales + confirmados_c_totales` casos.
+De los casos confirmados, `r confirmados_b_totales` corresponden a Hepatitis B, y `r confirmados_c_totales` corresponden a Hepatitis C.
+
+### **Casos confirmados y tasas por año**
+
+```{r}
+tabla_final_gt
+
+```
+
+### **Proporciones de casos confirmados según tipo de HV por año**
+
+Proporciones de casos confirmados según tipo de hepatitis por año, tomando como referencia la fecha de recolección en papel registrada en el SNVS, correspondiente a la fecha mínima registrada entre la fecha de consulta clínica y la fecha de toma de muestra de laboratorio.
+
+```{r}
+grafico_prop_anio
+
+```
 
 ### **Hepatitis A**
 
@@ -147,80 +171,74 @@ Disponibilidad de vacuna y uso
 
 ### **Hepatitis B**
 
-Frecuencia absoluta y relativa de casos agudos, crónicos, resueltos,  agudos y resueltos, y sin datos.
+Los casos de Hepatitis B notificados corresponden a un total de `r notificados_b_totales` casos.
 
 ```{r}
-print(resumen_eventos)
+resumen_eventos_b_gt
 ```
 
-El total de casos confirmados de HVB: 
+Los casos de Hepatitis B confirmados corresponden a un total de `r confirmados_b_totales` casos.
 
-```{r}
-count(confirmados_b)
-```
 
 Frecuencia absoluta y relativa de co-infección VIH.
 
 ```{r}
-print (co_infección_b) 
+co_infección_b_gt
 ```
+
+### **Hepatitis B Aguda**
 
 Distribución de grupo etario de hepatitis aguda y agudas resueltas: analizar el impacto de la vacunación.
 
-```{r}
-count(aguda_resuelta)
-```
 
 ```{r}
-print(aguda_resuelta_gedad) 
+aguda_resuelta_gedad_gt 
 ```
+### **Hepatitis B Crónica**
 
 Distribución de grupo etario de HBV crónica
 
+
 ```{r}
-count(cronica)
+cronica_gedad_gt
 ```
 
-```{r}
-print(cronica_gedad)
-```
-
-Porcentaje de pacientes crónicos en estadio de cirrosis, evolución  trasplante o muerte
+Porcentaje de pacientes crónicos en estadio de cirrosis
 
 ```{r}
-print(cronica_cirrosis)
+cronica_cirrosis_gt
 ```
 
 Porcentaje de pacientes crónicos que evolucionan a HCC
 
 ```{r}
-print(cronica_hcc)
+cronica_hcc_gt
 ```
 Porcentaje de pacientes crónicos que evolucionan a transplante
 
 ```{r}
-print(cronica_tx)
+cronica_tx_gt
 ```
 Porcentaje de pacientes crónicos que evolucionan a muerte
 
 ```{r}
-print(cronica_falle)
+cronica_falle_gt
 ```
 
 Porcentaje de pacientes crónicos que pierden el seguimiento
 
 ```{r}
-print(cronica_perdidos)
+cronica_perdidos_gt
 ```
 
 Porcentaje de pacientes tratados en cronicos
 
 ```{r}
-print(cronica_tto)
+cronica_tto_gt
 ```
 
 
-Identificar fuente de notificación en pacientes sin datos para categorizacion (evento bco de sangre). Los casos sin datos para categorización fueron notificados en el evento Banco de Sangre principalmente (N=10), y luego como Hepatitis Virales(N=4).
+Identificar fuente de notificación en pacientes sin datos para categorizacion (evento bco de sangre). Los casos sin datos para categorización fueron notificados en el evento Banco de Sangre principalmente (N=11), y luego como Hepatitis Virales(N=5).
 
 ```{r}
 print(sin_datos)
@@ -236,33 +254,97 @@ print(perdidos)
 
 ### **Hepatitis C**
 
-Casos diagnosticados con CV+
+Casos diagnosticados con CV+ (confirmados)
 
-Coinfeccion HIV
+```{r}
+resumen_eventos_gt
+```
 
-Porcentaje de Pacientes tratados y Tasa de curación (RVS).
 
-Pacientes en estadio de cirrosis
+Coinfeccion HIV/HBV (menos descartados)
 
-Porcentaje de pacientes crónicos en estadio de cirrosis, evolución a HCC trasplante o muerte
+```{r}
+co_infección_c_gt
+```
 
-Casos perdidos del sistema de salud
 
-Identificar fuente de notificación en pacientes sin datos para categorizacion
+Pacientes en estadio de cirrosis 
 
+```{r}
+confirmados_cirrosis_gt
+```
+
+Porcentaje de pacientes con evolución a HCC 
+
+```{r}
+confirmados_hcc_gt
+```
+
+Porcentaje de pacientes con evolución a transplante
+
+```{r}
+confirmados_tx_gt
+```
+
+
+Porcentaje de pacientes con evolución a muerte
+
+```{r}
+confirmados_falle_gt
+
+```
+Porcentaje de Pacientes tratados  (confirmados)
+
+```{r}
+confirmados_tto_gt
+
+```
+De los pacientes tratados porcentaje con RVS
+
+```{r}
+confirmados_rvs_gt
+```
+
+Casos perdidos del sistema de salud (sin datos , cronicos perdida de seguimiento)
+
+```{r}
+print (sin_datos_c)
+
+print (confirmados_perdidos)
+```
+
+
+Identificar fuente de notificación en pacientes sin datos para categorización 
+
+  -Comparación entre HBV / HCV
+  
 ## **5.Distribución geográfica**
 
-Ushuaia
+Casos de Hepatitis B notificados según localidad de residencia
 
-Río Grande
+```{r}
+notificados_localidad_b
+```
+Casos de Hepatitis C notificados según localidad de residencia
 
-Tolhuin
+```{r}
+notificados_localidad_c
+```
 
-Casos por ciudad
 
-Tasa ajustada por población
+Dsitribución por grupo etario de todos los casos HV notificados en SNVS entre 2018 y 2025
 
-Grupo etario
+```{r}
+notificados_gedad
+```
+
+
+Dsitribución por sexo de todos los casos HV notificados en SNVS entre 2018 y 2025
+
+```{r}
+notificados_sexo
+```
+
 
 ## **6.Factores de Riesgo Identificados: NO SE EVALUARA EN ESTA INSTANCIA**
 
