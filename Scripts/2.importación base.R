@@ -3,13 +3,13 @@
 #========================================
 
 # Base nominal UC-HV
-data <- read_excel("~/Unidad Centinela Hepatitis VIrales/UC-Hepatitis-Virales-Tierra-del-Fuego/Data/listado_sisa.xlsx")
+data <- read_excel("Data/listado_sisa.xlsx")
 
 # Base HVB
-Base_HVB <- read_excel("~/Unidad Centinela Hepatitis VIrales/UC-Hepatitis-Virales-Tierra-del-Fuego/Data/Base HVB.xlsx")
+Base_HVB <- read_excel("Data/Base HVB.xlsx")
 
 # Base HVC
-Base_HVC <- read_excel("~/Unidad Centinela Hepatitis VIrales/UC-Hepatitis-Virales-Tierra-del-Fuego/Data/Base HVC.xlsx")
+Base_HVC <- read_excel("Data/Base HVC.xlsx")
 
 # Base población
 poblacion <- read_excel("Data/población.xlsx")
