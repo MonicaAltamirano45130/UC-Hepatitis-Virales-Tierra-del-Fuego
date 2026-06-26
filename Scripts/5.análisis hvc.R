@@ -119,9 +119,14 @@ confirmados_rvs
 #========================================
 # 📊 SIN DATOS
 #========================================
+#Casos con falta de acceso del sistema de salud público 
+#(clasificacion:sin datos ) que tienen serología pero no se confirmó la carga viral.
+
+#Pacientes con hepatitis C crónica (confirmados si) 
+#que pierden el seguimiento
 
 sin_datos_c <- data_C_completa %>%
-  filter(`Confirmado` == "SIN DATOS")
+  filter(`Confirmado` == "SI"& `Perdida de seguimiento`=="SIN DATOS")
 
 nrow(sin_datos_c)
 
