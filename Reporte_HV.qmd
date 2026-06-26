@@ -1,20 +1,26 @@
 ---
 title: ""
-format: html
-toc: true
-toc-title: "Índice"
-toc-depth: 3
-toc-location: left
-execute: 
+subtitle: ""
+format:
+  html:
+    page-layout: full
+    toc: true
+    toc-title: "Índice"
+    toc-depth: 3
+    toc-location: left
+    smooth-scroll: true
+    embed-resources: true
+    css: "Plantillas e imagenes/estilo.css"
+    include-in-header: "Plantillas e imagenes/Encabezado.html"
+
+execute:
   echo: false
   warning: false
   message: false
-smooth-scroll: true
-embed-resources: true
-css: "Plantillas e imagenes/estilo.css"
+editor: 
+  markdown: 
+    wrap: 72
 ---
-
-![](Plantillas e imagenes/logo.png){width=40%}
 
 ```{r}
 source("Scripts/1.librerías.R")

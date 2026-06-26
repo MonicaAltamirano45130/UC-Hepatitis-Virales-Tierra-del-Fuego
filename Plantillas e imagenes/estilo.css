@@ -1,31 +1,28 @@
 body {
   background-color: #ffffff;
   font-family: 'Open Sans', Arial, sans-serif;
-  color: #000000;
-}
-
-/* Títulos */
-h1, h2, h3 {
-  color: #386cb0 !important;
+  color: #525252;
 }
 
 h1 {
+  color:#525252 ;
   text-align: center;
   font-size: 1.7em;
 }
 
 h2 {
+  color: #EC6C3B;
   text-align: left;
   font-size: 1.4em;
 }
 
 h3 {
+  color: #EC6C3B;
   text-align: left;
   font-size: 1.2em;
   padding-bottom: 15px;
 }
 
-/* Texto */
 p {
   color: #000000;
   font-size: 1em;
@@ -33,18 +30,16 @@ p {
   text-align: justify;
 }
 
-/* Links */
 a {
-  color: #386cb0;
+  color:#EC6C3B;
   text-decoration: none;
 }
-
 a:hover {
-  color: #274b8a;
+  color:#EC6C3B;
   text-decoration: underline;
 }
 
-/* Índice */
+/*Modificaciones en el índice*/
 .sidebar nav#TOC .toc-title {
   color: #000000 !important;
 }
@@ -54,10 +49,17 @@ a:hover {
   top: 100px;  
 }
 
+/* Color normal de los items del índice */
 .sidebar nav#TOC a {
   color: #000000 !important;
 }
 
+/* Color al pasar el mouse */
 .sidebar nav#TOC a:hover {
-  color: #386cb0 !important;
+  color: #EC6C3B !important;
+}
+
+#quarto-document-content {
+  max-width: 800px;
+  margin: 0 auto;
 }

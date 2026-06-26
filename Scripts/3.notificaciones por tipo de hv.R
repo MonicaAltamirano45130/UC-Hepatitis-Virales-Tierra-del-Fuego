@@ -131,7 +131,7 @@ ggplot(notificaciones_prop,
 #========================================
 
 tabla_anual <- confirmados_año %>%
-  filter(`anio` >= 1990 & `anio` <= 2025) %>%
+  filter(`anio` >= 2018 & `anio` <= 2025) %>%
   count(`anio`, Evento) %>%
   pivot_wider(
     names_from = Evento,
@@ -171,9 +171,30 @@ grafico_prop_anio <- ggplot(tabla_long,
     subtitle = "Proporción de casos por tipo",
     x = "Año",
     y = "Proporción",
-    fill = "Tipo de hepatitis"
+    fill = ""
   ) +
-  theme_minimal()
+  theme_minimal()+
+  theme(
+    panel.background = element_rect(fill = "#eaeded"),
+    plot.title = element_text(face = "bold", size = 24),
+    
+    axis.title = element_text(size = 18),
+    axis.text = element_text(size = 18),
+    
+    legend.title = element_text(size = 18),
+    legend.text = element_text(size = 18),
+    legend.position= "bottom",
+    
+    strip.text = element_text(
+      size = 24,
+      face = "bold"
+    ),
+    
+    axis.line = element_line(size = 1),
+    axis.ticks = element_line(size = 1),
+    plot.caption = element_text(size = 18)
+  )
+
 
 grafico_prop_anio
 
