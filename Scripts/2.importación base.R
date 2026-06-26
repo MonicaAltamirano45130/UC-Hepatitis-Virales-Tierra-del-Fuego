@@ -38,7 +38,7 @@ data <- data %>%
   ) %>%
   filter(
     año_apertura >= 2018,
-    between(año_papel, 2000, 2025)
+    between(año_papel, 2018, 2025)
   ) %>%
   select(
     `Nro Doc`,

@@ -81,7 +81,7 @@ tabla_final <- confirmados_año_poblacion %>%
 # Exportación
 write_xlsx(tabla_final, "Salidas/tabla_resumen.xlsx")
 
-
+tabla_final
 #========================================
 # 📊 PROPORCIONES SEMANALES
 #========================================
@@ -153,51 +153,57 @@ tabla_anual <- confirmados_año %>%
 # 📈 Gráfico anual
 #----------------------------------------
 tabla_long <- tabla_anual %>%
-  select(`anio`, starts_with("prop_")) %>%
+  select(anio, starts_with("prop_")) %>%
   pivot_longer(
     cols = -anio,
     names_to = "Evento",
     values_to = "Proporcion"
   ) %>%
-  mutate(Evento = gsub("prop_", "", Evento))
+  mutate(
+    Evento = gsub("prop_", "", Evento),
+    Evento = factor(
+      Evento,
+      levels = c(
+        "Hepatitis B",
+        "Hepatitis C"
+      )
+    )
+  )
 
 grafico_prop_anio <- ggplot(tabla_long,
                             aes(x = anio, y = Proporcion, fill = Evento)) +
   geom_col(position = "fill") +
   scale_y_continuous(labels = scales::percent) +
   scale_x_continuous(breaks = unique(tabla_long$anio)) +
+  scale_fill_manual(
+    values = c(
+      "Hepatitis B" = "#EC6C3B",
+      "Hepatitis C" = "#525252"
+    )
+  ) +
   labs(
-    title = "Distribución de hepatitis confirmadas por año",
-    subtitle = "Proporción de casos por tipo",
+    title = "Proporción de hepatitis virales confirmadas por año según tipo",
+    subtitle = "",
     x = "Año",
     y = "Proporción",
     fill = ""
   ) +
-  theme_minimal()+
+  theme_minimal() +
   theme(
     panel.background = element_rect(fill = "#eaeded"),
     plot.title = element_text(face = "bold", size = 24),
-    
     axis.title = element_text(size = 18),
     axis.text = element_text(size = 18),
-    
     legend.title = element_text(size = 18),
     legend.text = element_text(size = 18),
-    legend.position= "bottom",
-    
-    strip.text = element_text(
-      size = 24,
-      face = "bold"
-    ),
-    
-    axis.line = element_line(size = 1),
-    axis.ticks = element_line(size = 1),
+    legend.position = "right",
+    strip.text = element_text(size = 24, face = "bold"),
+    axis.line = element_line(linewidth = 1),
+    axis.ticks = element_line(linewidth = 1),
     plot.caption = element_text(size = 18)
   )
 
-
 grafico_prop_anio
-
 
 #========================================
 # 📊 TABLA FINAL CON TOTALES

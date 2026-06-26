@@ -4,6 +4,12 @@
 #========================================
 
 resumen_eventos_b <- data_B_completa %>%
+  mutate(
+    `Clasificación` = case_when(
+      `Clasificación` %in% c("Aguda", "Aguda y resuelta") ~ "Aguda",
+      TRUE ~ `Clasificación`
+    )
+  ) %>%
   group_by(`Clasificación`) %>%
   summarise(Casos = n(), .groups = "drop") %>%
   mutate(Porcentaje = round((Casos / sum(Casos)) * 100, 1)) %>%
