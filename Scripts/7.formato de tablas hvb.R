@@ -24,22 +24,21 @@ tabla_final_gt <- tabla_final %>%
   gt() %>%
   cols_hide(columns = poblacion) %>%
   cols_move(
-    columns = c(`Hepatitis B`, `Hepatitis C`, Total_HV,
-                TASA_100MIL_HVB, TASA_100MIL_HVC, TASA_100MIL_HV),
+    columns = c(`Hepatitis B`,TASA_100MIL_HVB, `Hepatitis C`,TASA_100MIL_HVC, Total_HV,
+                ),
     after = anio
   ) %>%
   cols_label(
     anio = "Año",
-    `Hepatitis B` = "Casos B",
-    `Hepatitis C` = "Casos C",
-    Total_HV = "Casos HV",
-    TASA_100MIL_HVB = "Tasa B",
-    TASA_100MIL_HVC = "Tasa C",
-    TASA_100MIL_HV = "Tasa TDF"
+    `Hepatitis B` = "HVB",
+    TASA_100MIL_HVB = "Tasa HVB",
+    `Hepatitis C` = "HVC",
+    TASA_100MIL_HVC = "Tasa HVC",
+    Total_HV = "Total HV/Año"
   ) %>%
   cols_align(align = "center", -anio) %>%
   fmt_number(
-    columns = c(TASA_100MIL_HVB, TASA_100MIL_HVC, TASA_100MIL_HV),
+    columns = c(TASA_100MIL_HVB, TASA_100MIL_HVC),
     decimals = 1
   ) %>%
   tab_header(

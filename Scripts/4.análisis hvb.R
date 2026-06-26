@@ -13,7 +13,6 @@ resumen_eventos_b <- data_B_completa %>%
   group_by(`Clasificación`) %>%
   summarise(Casos = n(), .groups = "drop") %>%
   mutate(Porcentaje = round((Casos / sum(Casos)) * 100, 1)) %>%
-  arrange(desc(Porcentaje)) %>%
   adorn_totals(where = "row")
 
 resumen_eventos_b
@@ -140,8 +139,10 @@ cronica_tto <- cronica %>%
 #========================================
 # 📊 PÉRDIDA DE SEGUIMIENTO (TOTAL)
 #========================================
+perdidos <- data_B_completa %>%
+  filter (Clasificación== "Aguda" & `Pérdida de seguimiento`=="SI" )
 
-perdidos <- confirmados_b %>%
+perdidos <- perdidos %>%
   group_by(`Pérdida de seguimiento`) %>%
   summarise(Casos = n(), .groups = "drop") %>%
   mutate(Porcentaje = round((Casos / sum(Casos)) * 100, 1)) %>%

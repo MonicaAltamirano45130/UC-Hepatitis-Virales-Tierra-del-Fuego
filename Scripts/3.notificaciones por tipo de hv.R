@@ -72,59 +72,12 @@ tabla_final <- confirmados_año_poblacion %>%
   mutate(`Total_HV` = rowSums(across(-anio))) %>%
   left_join(poblacion, by = "anio") %>%
   mutate(
-    TASA_100MIL_HV = round((`Total_HV` / poblacion) * 100000, 1),
     TASA_100MIL_HVB = round((`Hepatitis B` / poblacion) * 100000, 1),
     TASA_100MIL_HVC = round((`Hepatitis C` / poblacion) * 100000, 1)
   ) %>%
   arrange(anio)
 
-# Exportación
-write_xlsx(tabla_final, "Salidas/tabla_resumen.xlsx")
-
 tabla_final
-#========================================
-# 📊 PROPORCIONES SEMANALES
-#========================================
-
-notificaciones_prop <- confirmados_año %>%
-  count(anio, semana, Evento) %>%
-  complete(
-    anio = 2000:2025,
-    semana = 1:53,
-    Evento,
-    fill = list(n = 0)
-  ) %>%
-  group_by(anio, semana) %>%
-  mutate(prop = n / sum(n)) %>%
-  ungroup() %>%
-  mutate(
-    SEPI = paste0(`anio`, "-", sprintf("%02d", `semana`))
-  ) %>%
-  arrange(anio, semana) %>%
-  mutate(SEPI = factor(SEPI, levels = unique(SEPI)))
-
-#----------------------------------------
-# 📈 Gráfico semanal
-#----------------------------------------
-ggplot(notificaciones_prop,
-       aes(x = SEPI, y = prop, fill = Evento)) +
-  geom_col(position = "fill") +
-  scale_y_continuous(labels = scales::percent) +
-  scale_x_discrete(
-    breaks = levels(notificaciones_prop$SEPI)[seq(1, length(levels(notificaciones_prop$SEPI)), by = 6)]
-  ) +
-  labs(
-    title = "Proporción de hepatitis confirmadas por semana epidemiológica",
-    x = "SEPI (año-semana)",
-    y = "Proporción",
-    fill = "Tipo"
-  ) +
-  theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 45, hjust = 1),
-    legend.position = "bottom"
-  )
-
 
 #========================================
 # 📊 TABLA ANUAL
@@ -221,3 +174,4 @@ tabla_anual_fa <- tabla_anual %>%
   )
 
 tabla_anual_fa
+
