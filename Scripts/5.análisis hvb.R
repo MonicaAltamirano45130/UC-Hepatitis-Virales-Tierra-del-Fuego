@@ -132,42 +132,6 @@ cronica_tto <- cronica %>%
   arrange(desc(Porcentaje)) %>%
   adorn_totals(where = "row")
 
-
-#========================================
-# 📊 PÉRDIDA DE SEGUIMIENTO (TOTAL)
-#========================================
-perdidos <- data_B_completa %>%
-  filter (Clasificación== "Aguda" & `Pérdida de seguimiento`=="SI" )
-
-perdidos <- perdidos %>%
-  group_by(`Pérdida de seguimiento`) %>%
-  summarise(Casos = n(), .groups = "drop") %>%
-  mutate(Porcentaje = round((Casos / sum(Casos)) * 100, 1)) %>%
-  arrange(desc(Porcentaje)) %>%
-  adorn_totals(where = "row")
-
-perdidos
-
-
-#========================================
-# 📊 SIN DATOS
-#========================================
-
-sin_datos <- confirmados_b %>%
-  filter(`Clasificación` == "Sin datos")
-
-nrow(sin_datos)
-
-sin_datos <- sin_datos %>%
-  group_by(`Grupo de evento`) %>%
-  summarise(Casos = n(), .groups = "drop") %>%
-  mutate(Porcentaje = round((Casos / sum(Casos)) * 100, 1)) %>%
-  arrange(desc(Porcentaje)) %>%
-  adorn_totals(where = "row")
-
-sin_datos
-
-
 #========================================
 # 💾 EXPORTACIÓN
 #========================================

@@ -115,31 +115,6 @@ confirmados_rvs <- confirmados_rvs %>%
 
 confirmados_rvs
 
-
-#========================================
-# 📊 SIN DATOS
-#========================================
-#Casos con falta de acceso del sistema de salud público 
-#(clasificacion:sin datos ) que tienen serología pero no se confirmó la carga viral.
-
-#Pacientes con hepatitis C crónica (confirmados si) 
-#que pierden el seguimiento
-
-sin_datos_c <- data_C_completa %>%
-  filter(`Confirmado` == "SI"& `Perdida de seguimiento`=="SIN DATOS")
-
-nrow(sin_datos_c)
-
-sin_datos_c <- sin_datos_c %>%
-  group_by(`Grupo de evento`) %>%
-  summarise(Casos = n(), .groups = "drop") %>%
-  mutate(Porcentaje = round((Casos / sum(Casos)) * 100,1)) %>%
-  arrange(desc(Porcentaje)) %>%
-  adorn_totals(where = "row")
-
-sin_datos_c
-
-
 #========================================
 # 💾 EXPORTACIÓN
 #========================================
