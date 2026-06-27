@@ -313,18 +313,8 @@ cronica_falle_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
-**Tabla 10.** Casos y porcentajes de pacientes con pérdida de seguimiento con Hepatitis B Crónica. Unidad
-Centinela de HV, Tierra del Fuego. SE 1/2018--SE
-52/2025.
 
-Revisar crónicos, con pérdida de seguimiento SÍ
-
-```{r}
-cronica_perdidos_gt
-```
-Fuente: Elaboración propia con datos de Unidad Centinela HV.
-
-**Tabla 11.** Casos y porcentajes de pacientes que recibieron tratamiento con Hepatitis B Crónica. Unidad
+**Tabla 10.** Casos y porcentajes de pacientes que recibieron tratamiento con Hepatitis B Crónica. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025.
 
@@ -335,7 +325,7 @@ Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
 ### **Hepatitis C**
 
-**Tabla 12.** Casos y porcentajes de pacientes con Hepatitis C según categorización. Unidad
+**Tabla 11.** Casos y porcentajes de pacientes con Hepatitis C según categorización. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
@@ -347,7 +337,7 @@ Fuente: Elaboración propia con datos de Unidad Centinela HV.
 -Agregar confirmados HVC según grupo etario.
 -Agregar confirmados HVC según sexo.
 
-**Tabla 13.** Casos y porcentajes de pacientes confirmados de Hepatitis C según co - infección HVB y VIH. Unidad
+**Tabla 12.** Casos y porcentajes de pacientes confirmados de Hepatitis C según co - infección HVB y VIH. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
@@ -356,7 +346,7 @@ co_infección_c_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
-**Tabla 14.** Casos y porcentajes de pacientes confirmados de Hepatitis C según cirrosis. Unidad
+**Tabla 13.** Casos y porcentajes de pacientes confirmados de Hepatitis C según cirrosis. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
@@ -365,7 +355,7 @@ confirmados_cirrosis_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
-**Tabla 15.** Casos y porcentajes de pacientes confirmados de Hepatitis C según hepatocarcinoma. Unidad
+**Tabla 14.** Casos y porcentajes de pacientes confirmados de Hepatitis C según hepatocarcinoma. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
@@ -374,7 +364,7 @@ confirmados_hcc_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
-**Tabla 16.** Casos y porcentajes de pacientes confirmados de Hepatitis C según transplante. Unidad
+**Tabla 15.** Casos y porcentajes de pacientes confirmados de Hepatitis C según transplante. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
@@ -383,7 +373,7 @@ confirmados_tx_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
-**Tabla 17.** Casos y porcentajes de pacientes confirmados de Hepatitis C según defunción. Unidad Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+**Tabla 16.** Casos y porcentajes de pacientes confirmados de Hepatitis C según defunción. Unidad Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
 ```{r}
@@ -391,7 +381,7 @@ confirmados_falle_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
-**Tabla 18.** Casos y porcentajes de pacientes confirmados de Hepatitis C según tratamiento. Unidad Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+**Tabla 17.** Casos y porcentajes de pacientes confirmados de Hepatitis C según tratamiento. Unidad Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
 ```{r}
@@ -399,7 +389,7 @@ confirmados_tto_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
-**Tabla 19.** Casos y porcentajes de pacientes confirmados de Hepatitis C según RVS. Unidad Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+**Tabla 18.** Casos y porcentajes de pacientes confirmados de Hepatitis C según RVS. Unidad Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
 ```{r}
@@ -411,12 +401,12 @@ Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
 ### **5.1 Pérdida de seguimiento en HVB**
 
-**Tabla 20.** Casos y porcentajes de pacientes con HVB -clasificados como agudos y sin datos- con pérdida de seguimiento -SI- según fuentes disponibles. Unidad Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+**Tabla 19.** Casos y porcentajes de pacientes con HVB -clasificados como agudos y sin datos- con pérdida de seguimiento -SI- según fuentes disponibles. Unidad Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
 ### **5.2 Pérdida de seguimiento HVC**
 
-**Tabla 21.** Casos y porcentajes de pacientes -clasificados como confirmados SI y SIN DATOS- con pérdida de seguimiento -SI- según fuentes disponibles. Unidad
+**Tabla 20.** Casos y porcentajes de pacientes -clasificados como confirmados SI y SIN DATOS- con pérdida de seguimiento -SI- según fuentes disponibles. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
