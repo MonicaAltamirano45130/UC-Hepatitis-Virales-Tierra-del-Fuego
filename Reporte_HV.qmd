@@ -200,6 +200,15 @@ tabla_final_gt
 ```
 Fuente: Elaboración propia con datos de SNVS 2.0
 
+**Gráfico 1.** Casos confirmados y tasas de Hepatitis Virales por año. Unidad
+Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+52/2025.
+
+```{r}
+curva_interactiva_casos
+```
+Fuente: Elaboración propia con datos de SNVS 2.0
+
 ### **Proporciones de casos confirmados según tipo de HV por año**
 
 Proporciones de casos confirmados según tipo de hepatitis por año,
@@ -207,7 +216,7 @@ tomando como referencia la fecha de recolección en papel registrada en
 el SNVS, correspondiente a la fecha mínima registrada entre la fecha de
 consulta clínica y la fecha de toma de muestra de laboratorio.
 
-**Gráfico 1.** Proporción de casos confirmados de Hepatitis Virales por año. Unidad
+**Gráfico 2.** Proporción de casos confirmados de Hepatitis Virales por año. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025.
 

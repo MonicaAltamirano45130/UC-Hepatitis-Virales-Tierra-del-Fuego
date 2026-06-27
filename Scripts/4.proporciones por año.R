@@ -51,7 +51,7 @@ grafico_prop_anio <- ggplot(tabla_long,
     )
   ) +
   labs(
-    title = "Proporción de hepatitis virales confirmadas por año según tipo",
+    title = "Proporción de Hepatitis Virales confirmadas por año según tipo",
     subtitle = "",
     x = "Año",
     y = "Proporción",
