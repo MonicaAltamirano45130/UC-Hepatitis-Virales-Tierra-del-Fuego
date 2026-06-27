@@ -12,4 +12,3 @@ library(janitor)    # Limpieza de datos y totales
 library(tidyr)      # Reorganización de datos (ej: complete)
 library(ggplot2)    # Gráficos
 library(scales)     # Formato de escalas (porcentajes, etc.)
-library(highcharter) # Gráficos interactivos

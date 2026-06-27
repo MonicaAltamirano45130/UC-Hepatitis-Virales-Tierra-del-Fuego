@@ -25,10 +25,10 @@ editor:
 ```{r}
 source("Scripts/1.librerías.R")
 source("Scripts/2.importación base.R")
-source("Scripts/3.notificaciones por tipo de hv.R")
-source("Scripts/curva_interactiva_casos.R")
-source("Scripts/4.análisis hvb.R")
-source("Scripts/5.análisis hvc.R")
+source("Scripts/3.casos y tasas.R")
+source("Scripts/4.proporciones por año.R")
+source("Scripts/5.análisis hvb.R")
+source("Scripts/6.análisis hvc.R")
 source("Scripts/7.formato de tablas hvb.R")
 source("Scripts/8.formato de tablas hvc.R")
 source("Scripts/9.pérdida de seguimiento hvb.R")
@@ -218,7 +218,7 @@ Fuente: Elaboración propia con datos de SNVS 2.0
 
 ### **Hepatitis B**
 
-Los casos de Hepatitis B notificados corresponden a un total de
+Los casos de Hepatitis B notificados y categorizados corresponden a un total de
 `r notificados_b_totales` casos.
 
 **Tabla 2.** Categorización de Hepatitis B. Unidad

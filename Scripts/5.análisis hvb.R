@@ -1,7 +1,4 @@
-
-#========================================
-# 📊 RESUMEN CLASIFICACIÓN
-#========================================
+# Resumen de categorización de Hepatitis B
 
 resumen_eventos_b <- data_B_completa %>%
   mutate(
@@ -15,7 +12,7 @@ resumen_eventos_b <- data_B_completa %>%
   mutate(Porcentaje = round((Casos / sum(Casos)) * 100, 1)) %>%
   adorn_totals(where = "row")
 
-resumen_eventos_b
+# Cuento notificados y categorizados de Hepatitis B
 
 notificados_b_totales <- data_B_completa %>%
   summarise(Total = n())
