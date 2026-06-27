@@ -182,12 +182,9 @@ En el período comprendido entre los años 2018 a 2025 en la provincia de
 Tierra del Fuego A e IAS, se notificaron `r notificados_totales` casos
 de Hepatitis Virales.
 
--Notificados por localidad (pendiente agregar tabla)
-
 Según clasificaciones manuales de SNVS 2.0, en el período consignado entre el año 2018 y el año 2025, se confirmaron
-`r confirmados_b_totales + confirmados_c_totales` casos de Hepatitis Virales en toda la provincia. De los casos
-confirmados, `r confirmados_b_totales` corresponden a Hepatitis B, y
-`r confirmados_c_totales` corresponden a Hepatitis C.
+`r confirmados_b_totales + confirmados_c_totales` casos de Hepatitis Virales en toda la provincia, `r confirmados_b_totales` corresponden a Hepatitis B, y
+`r confirmados_c_totales` casos a Hepatitis C.
 
 ### **Casos confirmados y tasas por año**
 
