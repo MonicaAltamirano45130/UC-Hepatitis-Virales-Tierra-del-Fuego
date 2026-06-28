@@ -33,6 +33,8 @@ source("Scripts/7.formato de tablas hvb.R")
 source("Scripts/8.formato de tablas hvc.R")
 source("Scripts/9.pérdida de seguimiento hvb.R")
 source("Scripts/10.pérdida de seguimiento hvc.R")
+source("Scripts/11.distribucion geografica.R")
+source("Scripts/12.letalidad.R")
 ```
 
 # Boletín Epidemiológico
@@ -407,9 +409,23 @@ Fuente: Elaboración propia con datos de Unidad Centinela HV.
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 52/2025. 
 
+### **5.3 Fallecidos HVC**
+
+```{r}
+letalidad_hvc
+```
+
+
 ## **6.Distribución geográfica**
 
--Agregar casos notificados por localidad.
+**Tabla 21.** Casos notificados y porcentajes según localidad de residencia. Unidad
+Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+52/2025.
+
+```{r}
+localidad_gt
+```
+Fuente: Elaboración propia con datos de SNVS 2.0
 
 ## **7.Análisis y problemas detectados**
 

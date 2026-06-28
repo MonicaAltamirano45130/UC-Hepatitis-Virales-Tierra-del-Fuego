@@ -67,6 +67,13 @@ aguda_resuelta_gedad <- aguda_resuelta %>%
 
 aguda_resuelta_gedad
 
+aguda_resuelta_sexo <- aguda_resuelta %>%
+  group_by(`Sexo Legal`) %>%
+  summarise(Casos = n(), .groups = "drop") %>%
+  mutate(Porcentaje = round((Casos / sum(Casos)) * 100, 1)) %>%
+  adorn_totals(where = "row")
+
+aguda_resuelta_sexo
 
 #========================================
 # 📊 CRÓNICOS
@@ -85,7 +92,13 @@ cronica_gedad <- cronica %>%
 
 cronica_gedad
 
+cronica_sexo <- cronica %>%
+  group_by(`Sexo Legal`) %>%
+  summarise(Casos = n(), .groups = "drop") %>%
+  mutate(Porcentaje = round((Casos / sum(Casos)) * 100, 1)) %>%
+  adorn_totals(where = "row")
 
+cronica_sexo
 #----------------------------------------
 # Complicaciones
 #----------------------------------------

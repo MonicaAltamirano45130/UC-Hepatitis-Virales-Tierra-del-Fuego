@@ -51,7 +51,13 @@ confirmados_gedad <- confirmados_c %>%
 
 confirmados_gedad 
 
+confirmados_sexo <- confirmados_c %>%
+  group_by(`Sexo Legal`) %>%
+  summarise(Casos = n(), .groups = "drop") %>%
+  mutate(Porcentaje = round((Casos / sum(Casos)) * 100,1)) %>%
+  adorn_totals(where = "row")
 
+confirmados_sexo 
 #----------------------------------------
 # COMPLICACIONES
 #----------------------------------------
