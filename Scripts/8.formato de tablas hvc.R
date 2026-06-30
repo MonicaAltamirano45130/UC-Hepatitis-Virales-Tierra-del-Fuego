@@ -257,3 +257,26 @@ confirmados_rvs_gt <- confirmados_rvs %>%
   )
 
 confirmados_rvs_gt
+
+confirmados_gedad_gt <- confirmados_gedad %>%
+  gt() %>%
+  cols_label(
+    `Grupo etario diagnóstico` = "Grupo etario",
+    Casos = "Casos",
+    Porcentaje = "Porcentaje"
+  ) %>%
+  cols_align(align = "center", -`Grupo etario diagnóstico`) %>%
+  tab_header(
+    title = "Grupos etarios HVC confirmada",
+    subtitle = "Período 2018–2025"
+  )
+
+confirmados_gedad_gt
+
+confirmados_sexo_gt <- confirmados_sexo %>%
+  gt() %>%
+  cols_label(`Sexo Legal` = "Sexo", Casos = "Casos", Porcentaje = "Porcentaje") %>%
+  cols_align(align = "center", -`Sexo Legal`) %>%
+  tab_header(title = "Casos de HVB crónica según sexo")
+
+confirmados_sexo_gt

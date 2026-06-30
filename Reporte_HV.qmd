@@ -262,7 +262,14 @@ aguda_resuelta_gedad_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
--Agregar Hepatitis Aguda según sexo.
+**Tabla 6.** Distribución por sexo de Hepatitis B Aguda. Unidad
+Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+52/2025.
+
+```{r}
+aguda_resuelta_sexo_gt
+```
+Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
 ### **Hepatitis B Crónica**
 
@@ -275,7 +282,13 @@ cronica_gedad_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
--Agregar Hepatitis Crónica según sexo.
+**Tabla 5.** Distribución por sexo de Hepatitis B Crónica. Unidad
+Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+52/2025.
+```{r}
+cronica_sexo_gt
+```
+Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
 **Tabla 6.** Casos y porcentajes de pacientes con cirrosis en Hepatitis B Crónica. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE
@@ -333,8 +346,22 @@ resumen_eventos_gt
 ```
 Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
--Agregar confirmados HVC según grupo etario.
--Agregar confirmados HVC según sexo.
+**Tabla 4.** Distribución de grupo etario de Hepatitis C. Unidad
+Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+52/2025.
+```{r}
+confirmados_gedad_gt
+```
+Fuente: Elaboración propia con datos de Unidad Centinela HV.
+
+**Tabla 6.** Distribución por sexo de Hepatitis C. Unidad
+Centinela de HV, Tierra del Fuego. SE 1/2018--SE
+52/2025.
+
+```{r}
+confirmados_sexo_gt
+```
+Fuente: Elaboración propia con datos de Unidad Centinela HV.
 
 **Tabla 12.** Casos y porcentajes de pacientes confirmados de Hepatitis C según co - infección HVB y VIH. Unidad
 Centinela de HV, Tierra del Fuego. SE 1/2018--SE

@@ -158,3 +158,25 @@ cronica_tto_gt <- cronica_tto %>%
   tab_header(title = "Tratamiento en HVB")
 
 cronica_tto_gt
+
+#====================================================
+# TABLA 12: Sexo aguda resuelta HVB ----
+#====================================================
+aguda_resuelta_sexo_gt <- aguda_resuelta_sexo %>%
+  gt() %>%
+  cols_label(`Sexo Legal` = "Sexo", Casos = "Casos", Porcentaje = "Porcentaje") %>%
+  cols_align(align = "center", -`Sexo Legal`) %>%
+  tab_header(title = "Casos de HVB Aguda según sexo")
+
+aguda_resuelta_sexo_gt
+
+#====================================================
+  # TABLA 12: Sexo aguda resuelta HVB ----
+#====================================================
+cronica_sexo_gt <- cronica_sexo %>%
+  gt() %>%
+  cols_label(`Sexo Legal` = "Sexo", Casos = "Casos", Porcentaje = "Porcentaje") %>%
+  cols_align(align = "center", -`Sexo Legal`) %>%
+  tab_header(title = "Casos de HVB crónica según sexo")
+
+cronica_sexo_gt
