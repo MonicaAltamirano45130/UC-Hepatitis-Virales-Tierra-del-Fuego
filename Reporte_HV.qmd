@@ -439,7 +439,7 @@ Centinela de HV, Tierra del Fuego. SE 1/2018--SE
 ### **5.3 Fallecidos HVC**
 
 ```{r}
-letalidad_hvc
+fallecidos_hvc
 ```
 
 

@@ -15,7 +15,7 @@ fallecidos_hvc <- data_C_completa %>%
 fallecidos_hvc <- fallecidos_hvc %>%
   filter(Fallecido=="SI")
 
-letalidad_hvc
+fallecidos_hvc
 
 confirmados_gedad_falle <- fallecidos_hvc %>%
   group_by(`Grupo etario diagnóstico`) %>%

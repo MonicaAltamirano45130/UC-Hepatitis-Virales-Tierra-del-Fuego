@@ -277,6 +277,6 @@ confirmados_sexo_gt <- confirmados_sexo %>%
   gt() %>%
   cols_label(`Sexo Legal` = "Sexo", Casos = "Casos", Porcentaje = "Porcentaje") %>%
   cols_align(align = "center", -`Sexo Legal`) %>%
-  tab_header(title = "Casos de HVB crónica según sexo")
+  tab_header(title = "Casos de HVC según sexo")
 
 confirmados_sexo_gt
